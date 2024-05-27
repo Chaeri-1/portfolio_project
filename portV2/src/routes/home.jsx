@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-
 const Title = styled.div`
   display: flex
   justify-content: center;

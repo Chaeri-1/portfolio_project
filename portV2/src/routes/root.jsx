@@ -17,7 +17,7 @@ export default function Root() {
             </li>
         </ul>
       </div>
-      <div id="detail">
+      <div>
         <Outlet/>
       </div>
     </>
