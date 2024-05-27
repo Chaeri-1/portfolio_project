@@ -1,0 +1,41 @@
+#root {
+  display:block;
+  height: 100%;
+  width: 100%;
+}
+
+#header {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(176, 226, 255);
+}
+
+#header h1 {
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+#header ul {
+  display: flex;
+  list-style: none;
+}
+
+#header ul li {
+  display: flex;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+#header a {
+  display: flex;
+  text-decoration-line: none;
+  color: black;
+}
+
+#home div{
+  display: flex;
+  justify-content: center;
+}
