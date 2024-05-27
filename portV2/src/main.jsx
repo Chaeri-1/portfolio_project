@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,7 +7,7 @@ import {
 import './index.css'
 import Root from "./routes/root"
 import Home from "./routes/home"
-import Post from './routes/post'
+import Post from "./routes/post"
 
 const router = createBrowserRouter([
   {
