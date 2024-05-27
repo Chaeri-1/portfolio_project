@@ -39,6 +39,9 @@ export default function Root() {
             <li>
               <a href={`/contacts/3`}>Activities</a>
             </li>
+            <li>
+              <a href={`/blog/`}>Blog</a>
+            </li>
           </ul>
         </nav>
       </div>

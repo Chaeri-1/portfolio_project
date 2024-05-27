@@ -10,6 +10,7 @@ import ErrorPage from "./error-page";
 import Contact from "./routes/contact";
 import Introduce from './routes/aboutMe';
 import Activity from './routes/activity';
+import BlogMain from './routes/blogmain';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path: 'blog/',
+    elemnt: <BlogMain/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
