@@ -4,8 +4,11 @@ export default function Root() {
   return (
     <>
       <div id='header'>
-        <h1><a href={`/home`}>HCR</a></h1>
+        <h1><a href={`/home/`}>HCR</a></h1>
         <ul>
+            <li>
+              <a href={`/login/`}>login</a>
+            </li>
             <li>
               <a href={`/profile`}>About Me</a>
             </li>
