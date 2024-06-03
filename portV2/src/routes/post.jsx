@@ -48,13 +48,17 @@ export default function Post() {
   let userId = 1;
 
   const writePost = async () => {
+    const access = localStorage.getItem("access");
     const data = {
       title: title,
       body: content,
-      userId: userId
     };
     try {
-      const response = await api.post('blog/', data);
+      const response = await api.post(`blog/${}`, data, {
+        headers: {
+          Authorization: `Bearer ${access}`
+        }
+      });
       console.log('응답 완료', response);
       setPosts([...post, response.data]);
       setTitle('');
@@ -66,7 +70,7 @@ export default function Post() {
 
   const updatePost = async () => {
     try {
-      const response = await api.put(`blog/100`, posts);
+      const response = await api.put(`blog/`, posts);
       console.log('수정 완료', response);
       setPosts(posts.map(post => post.id === 100 ? response.data : post));
       setTitle('')
@@ -93,7 +97,7 @@ export default function Post() {
         // getPosts();
         setPosts(posts.filter(post => post.id !== 100));
     } catch (error) {
-        console.error('에러 : ', error);
+      return error;
     }
 }
 

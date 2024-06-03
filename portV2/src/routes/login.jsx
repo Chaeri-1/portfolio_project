@@ -1,15 +1,7 @@
 import React, {useState} from "react"
 import api from "./api"
 import { Cookies } from "react-cookie";
-
-const cookies = new Cookies();
-
-export const setCookie = (name, value) => {
-  return cookies.set(name, value);
-};
-export const getCookie = (name) => {
-  return cookies.get(name);
-};
+import axios from "axios";
 
 export default function Login() {
   const [username, setUsername] = useState("")
@@ -23,12 +15,14 @@ export default function Login() {
       console.log('로그인 성공', response.data)
       setUsername("")
       setPassword("")
-      setCookie("token", response.data.token);
+      localStorage.setItem("access", response.data.access)
+      // axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access}`
     } catch (error) {
+      console.error('에러: ', error)
       return error;
     }
   }
-  console.log(localStorage.getItem("token"))
+  localStorage.getItem("access")
   return(
     <div id='login-space'>
       <h1>Sign in</h1>
