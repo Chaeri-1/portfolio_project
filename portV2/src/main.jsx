@@ -11,6 +11,7 @@ import Post from "./routes/post"
 import Login from './routes/login'
 import ErrorPage from './error-page'
 import Register from './routes/register'
+import Write from './routes/write'
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
         element: <Home/>,
       },
       {
-        path: "blog/",
+        path: "blog/post/",
         element: <Post/>,
       },
       {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path:"reiginstration/",
         element: <Register/>
+      },
+      {
+        path:"blog/write/",
+        element: <Write/>
       }
     ]
   },

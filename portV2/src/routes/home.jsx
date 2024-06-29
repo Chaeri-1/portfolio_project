@@ -24,6 +24,7 @@ export default function Home() {
     <>
       <BlogTittle>
         <h1>Chaeri's Portfolio</h1>
+        <p>Blog project start: 24-05-20</p>
         <p>last update: <span>24-06-03</span></p>
       </BlogTittle>
     </>

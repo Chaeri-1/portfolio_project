@@ -13,10 +13,10 @@ export default function Root() {
               <a href={`/profile`}>About Me</a>
             </li>
             <li>
-              <a href={`/blog/`}>Posts</a>
+              <a href={`/blog/post/`}>Posts</a>
             </li>
             <li>
-              <a href={`/blog/`}>Write</a>
+              <a href={`/blog/write/`}>Write</a>
             </li>
         </ul>
       </div>

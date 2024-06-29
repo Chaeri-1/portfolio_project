@@ -17,6 +17,7 @@ export default function Login() {
       setPassword("")
       localStorage.setItem("access", response.data.access)
       // axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access}`
+      // return response.data
     } catch (error) {
       console.error('에러: ', error)
       return error;

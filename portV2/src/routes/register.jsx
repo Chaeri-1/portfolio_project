@@ -17,16 +17,18 @@ export default function Register() {
   const [nickname, setNickname] = useState("")
   const [university, setUniversity] = useState("")
   const [location, setLocation] = useState("")
+  
   const register = async () => {
+    const data = {
+      username: username,
+      password1: password1,
+      password2: password2,
+      nickname: nickname,
+      university: university,
+      location: location,
+    }
     try {
-      const response = await api.post("dj/registration/", {
-        username: username,
-        password1: password1,
-        password2: password2,
-        nickname: nickname,
-        university: university,
-        location: location,
-      })
+      const response = await api.post("dj/registration/", data)
       console.log('회원가입 성공', response.data)
       setUsername("")
       setPassword1("")

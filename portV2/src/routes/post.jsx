@@ -42,32 +42,17 @@ const PostButton = styled.div `
 
 
 export default function Post() {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
   const [posts, setPosts] = useState([]);
-  let userId = 1;
 
-  const writePost = async () => {
-    const access = localStorage.getItem("access");
-    const data = {
-      title: title,
-      body: content,
-    };
+  const getPosts = async () => {
     try {
-      const response = await api.post(`blog/${}`, data, {
-        headers: {
-          Authorization: `Bearer ${access}`
-        }
-      });
-      console.log('응답 완료', response);
-      setPosts([...post, response.data]);
-      setTitle('');
-      setContent('');
+      const response = await api.get('blog/');
+      console.log('글 불러오기 완료');
+      setPosts(response.data);
     } catch (error) {
       console.error('에러: ', error);
     }
   }
-
   const updatePost = async () => {
     try {
       const response = await api.put(`blog/`, posts);
@@ -79,17 +64,6 @@ export default function Post() {
       console.error('에러 : ', error);
     }
   }
-
-  const getPosts = async () => {
-    try {
-      const response = await api.get('blog/');
-      console.log('글 불러오기 완료');
-      setPosts(response.data);
-    } catch (error) {
-      console.error('에러: ', error);
-    }
-  }
-
   const deletePost = async () => {
     try {
         const response = await api.delete(`/blog/100`);
@@ -108,7 +82,7 @@ export default function Post() {
   return (
     <>
       <div id="list">
-        <h1>My Posts</h1>
+        <h1>Posts</h1>
           {posts.map((post) => (
             <PostList key={post.id}>
               <h3>제목: {post.title}</h3>
@@ -119,27 +93,7 @@ export default function Post() {
               </PostButton>
             </PostList>
           ))}
-          <h2>새글 작성하기</h2>
-          <div id ='new-post'>
-            <input
-              id='input-title'
-              type='text'
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder='제목을 입력하세요.'
-            />
-            <input
-              type='text'
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              placeholder='내용을 입력하세요.'
-              id='input-content'
-            />
-            <button onClick={writePost}>작성</button>
-          </div>
-          
       </div>
-      
     </>
   )
 }
