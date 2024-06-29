@@ -12,6 +12,7 @@ import Login from './routes/login'
 import ErrorPage from './error-page'
 import Register from './routes/register'
 import Write from './routes/write'
+import PostView from './routes/postView'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "blog/post/",
         element: <Post/>,
+      },
+      {
+        path: "blog/post/id/:postId",
+        element: <PostView/>,
       },
       {
         path:"login/",
