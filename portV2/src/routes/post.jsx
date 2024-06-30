@@ -72,7 +72,7 @@ export default function Post() {
         <PostList
           posts={posts}
           onClickItem={(item)=>{
-            navigate(`id/${item.id}`);
+            navigate(`show/${item.id}`);
           }}
         />
       </div>

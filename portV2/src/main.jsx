@@ -13,6 +13,7 @@ import ErrorPage from './error-page'
 import Register from './routes/register'
 import Write from './routes/write'
 import PostView from './routes/postView'
+import EditPost from './routes/post/editPost'
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
         element: <Post/>,
       },
       {
-        path: "blog/post/id/:postId",
+        path: "blog/post/show/:postId",
         element: <PostView/>,
       },
       {
@@ -44,7 +45,19 @@ const router = createBrowserRouter([
       {
         path:"blog/write/",
         element: <Write/>
-      }
+      },
+      {
+        path: "blog/post/show/:postId/edit",
+        element: <EditPost/>,
+      },
+      // {
+      //   path:"edit/:postId",
+      //   element: <EditPost/>
+      // },
+      // {
+      //   path:"delete/:postId",
+      //   element: <DeletePost/>
+      // }
     ]
   },
 ])

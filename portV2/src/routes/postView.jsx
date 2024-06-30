@@ -56,28 +56,25 @@ function PostView() {
       console.error('에러: ', error);
     }
   }
-//수정 필요!!
-  const updatePost = async () => {
-    try {
-      const response = await api.put(`blog/`, posts);
-      console.log('수정 완료', response);
-      setPosts(posts.map(post => post.id === 100 ? response.data : post));
-      setTitle('')
-      setContent('');
-    } catch (error) {
-      console.error('에러 : ', error);
-    }
-  }
+
   const deletePost = async () => {
-    try {
-        const response = await api.delete(`/blog/${postId}`, {headers: {Authorization: `Bearer ${access}`}, data});
+    const access = localStorage.getItem("access");
+    if (window.confirm('Are you sure?')) {
+      try {
+        const response = await api.delete(`blog/${postId}/`, {
+          headers: {Authorization: `Bearer ${access}`}
+        })
         console.log('삭제 완료', response);
         navigate(-1);
-        // getPosts();
         setPosts(posts.filter(post => post.id !== postId));
-    } catch (error) {
-      return error;
+      } catch (error) {
+        console.error('에러: ', error);
+      }
     }
+  }
+
+  const toUpdate = () => {
+    navigate('edit/')
   }
 
   useEffect(() => {
@@ -94,7 +91,7 @@ function PostView() {
               <PostContainer>
                   <TitleText>{post.title}</TitleText>
                   <ContentText>{post.body}</ContentText>
-                  <button onClick={updatePost}>수정</button>
+                  <button onClick={toUpdate}>수정</button>
                   <button onClick={deletePost}>삭제</button>
               </PostContainer>
           </Container>
